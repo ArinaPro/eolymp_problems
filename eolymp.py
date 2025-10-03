@@ -34,18 +34,39 @@
 # 2099
 
 
-n = int(input())
-nl = input().split()
-m = int(input())
-ml = input().split()
-res = []
+# n = int(input())
+# nl = input().split()
+# m = int(input())
+# ml = input().split()
+# res = []
+#
+# for l in nl:
+#     if l not in ml:
+#         res.append(l)
+# print(len(res))
+# for r in range(len(res)):
+#     if r != len(res)-1:
+#         print(res[r], end=" ")
+#     else:
+#         print(res[r])
 
-for l in nl:
-    if l not in ml:
-        res.append(l)
-print(len(res))
-for r in range(len(res)):
-    if r != len(res)-1:
-        print(res[r], end=" ")
+
+# 4847
+
+from sys import stdin
+
+res = dict()
+for _ in range(7):
+    a = input()
+    action = a.split()
+    if action[0] != "POP":
+        res.update({action[1]:action[2]})
     else:
-        print(res[r])
+        m = list(res.values()).index(max(res.values()))
+        print(f"{list(res.keys())[m]} {res[list(res.keys())[m]]}")
+        res.pop(list(res.keys())[m])
+# for r in range(len(res)):
+#     if r != len(res)-1:
+#         print(f"{list(res.keys())[r]} {list(res.values())[r]}", end=" ")
+#     else:
+#         print(f"{list(res.keys())[r]} {list(res.values())[r]}")
